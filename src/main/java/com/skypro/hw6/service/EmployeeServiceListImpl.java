@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class EmployeeServiceListImpl implements EmployeeService {
     private static final int NUMBER_OF_EMPLOYEES = 5;
@@ -29,8 +30,8 @@ public class EmployeeServiceListImpl implements EmployeeService {
     @Override
     public Employee delete(String firstName, String lastName) {
         Employee employee1 = new Employee(firstName, lastName);
-        for (Employee employee2:employees) {
-            if (employee2.equals(employee1)){
+        for (Employee employee2 : employees) {
+            if (employee2.equals(employee1)) {
                 employees.remove(employee2);
                 return employee2;
             }
@@ -41,8 +42,8 @@ public class EmployeeServiceListImpl implements EmployeeService {
     @Override
     public Employee find(String firstName, String lastName) {
         Employee employee1 = new Employee(firstName, lastName);
-        for (Employee employee2:employees) {
-            if (employee2.equals(employee1)){
+        for (Employee employee2 : employees) {
+            if (employee2.equals(employee1)) {
                 return employee2;
             }
         }

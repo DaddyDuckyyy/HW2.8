@@ -15,20 +15,23 @@ public class EmployeeController {
     public EmployeeController(EmployeeService service) {
         this.service = service;
     }
+
     @GetMapping("/add")
-    public String addEmployee(@RequestParam String firstName, @RequestParam String lastName){
-        return generateMessage(service.add(firstName,lastName), "ДОБАВЛЕН");
-    }
-    @GetMapping("/remove")
-    public String removeEmployee(@RequestParam String firstName, @RequestParam String lastName){
-        return generateMessage(service.delete(firstName,lastName),"УДАЛЁН");
-    }
-    @GetMapping("/find")
-    public String findEmployee(@RequestParam  String firstName, @RequestParam String lastName){
-        return generateMessage(service.find(firstName,lastName), "НАЙДЕН");
+    public String addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return generateMessage(service.add(firstName, lastName), "ДОБАВЛЕН");
     }
 
-    private String generateMessage(Employee employee,String result){
-        return employee.toString()+result ;
+    @GetMapping("/remove")
+    public String removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return generateMessage(service.delete(firstName, lastName), "УДАЛЁН");
+    }
+
+    @GetMapping("/find")
+    public String findEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return generateMessage(service.find(firstName, lastName), "НАЙДЕН");
+    }
+
+    private String generateMessage(Employee employee, String result) {
+        return employee.toString() + result;
     }
 }
